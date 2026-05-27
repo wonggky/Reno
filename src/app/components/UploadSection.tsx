@@ -84,10 +84,7 @@ export default function UploadSection({ quotations, onRemove }: UploadSectionPro
                     '& .MuiAccordionSummary-root': { px: 0 }
                   }}
                 >
-                  <AccordionSummary
-                    expandIcon={<ChevronDown size={18} />}
-                    sx={{ px: 0, '& .MuiAccordionSummary-expandIconWrapper': { mr: 0 } }}
-                  >
+                  <AccordionSummary sx={{ px: 0 }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', gap: 2 }}>
                       <Box>
                         <Typography variant="subtitle1" sx={{ fontWeight: 500 }}>
@@ -98,6 +95,13 @@ export default function UploadSection({ quotations, onRemove }: UploadSectionPro
                         </Typography>
                       </Box>
                       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                        <IconButton
+                          size="small"
+                          aria-hidden
+                          sx={{ transform: expandedQuotationId === quotation.id ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 150ms' }}
+                        >
+                          <ChevronDown size={18} />
+                        </IconButton>
                         <Chip
                           label={`S$${quotation.totalAmount.toLocaleString()}`}
                           size="small"
